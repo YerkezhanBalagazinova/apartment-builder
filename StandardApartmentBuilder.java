@@ -56,6 +56,12 @@ public class StandardApartmentBuilder implements ApartmentBuilder{
         return this;
     }
     public Apartment build(){
+        if (rooms < 0) {
+            throw new IllegalStateException("Number of rooms must be greater than 0");
+        }
+        if (floor < 0) {
+            throw new IllegalStateException("Floor cannot be negative");
+        }
         return new Apartment(rooms,floor,furniture,appliances,interior,balcony,smartHome,heating,
                 euroRenovation,
                 false,
