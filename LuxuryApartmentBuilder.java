@@ -61,6 +61,12 @@ public class LuxuryApartmentBuilder implements ApartmentBuilder{
     }
     @Override
     public Apartment build(){
+        if (rooms < 0) {
+            throw new IllegalStateException("Number of rooms must be greater than 0");
+        }
+        if (floor < 0) {
+            throw new IllegalStateException("Floor cannot be negative");
+        }
         return new Apartment(rooms,floor,furniture,appliances,interior,balcony,smartHome,heating, false,panoramicView, penthouse);
     }
 
